@@ -5,26 +5,22 @@
       "id": 2
     },
     {
-      "name": "База",
-      "id": 3
-    },
-    {
-      "name": "ФизКульт",
-      "id": 6
+      "name": "Accounting",
+      "id": 7
     }
   ],
   "employees": [
     {
-      "first_name": "Иван",
-      "last_name": "Петров",
-      "department_no": "1",
-      "id": 4
-    },
-    {
       "first_name": "Petr",
-      "last_name": "Vasiliev",
+      "last_name": "Ivanov",
       "department_no": "2",
       "id": 5
+    },
+    {
+      "first_name": "Prohor",
+      "last_name": "kuznetsov",
+      "department_no": "2",
+      "id": 6
     }
   ]
 }

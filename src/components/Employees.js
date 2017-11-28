@@ -6,7 +6,8 @@ import Employee from './Employee';
 
 class Employees extends Component {
   componentDidMount() {
-    const url = `http://localhost:3010/employees`
+    const url = `http://localhost:3010/employees`;
+    
     fetch(url)
     .then(res => res.json())
     .then(data => {
@@ -72,7 +73,7 @@ class Employees extends Component {
         <Table>
           <thead>
             <tr>
-              <th>#</th>
+              <th style={{width: '80px'}}>#</th>
               <th>First name</th>
               <th>Last name</th>
               <th style={{width: '50px'}}>№Dep</th>

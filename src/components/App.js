@@ -13,26 +13,24 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
-          <header className="App-header">
-            <p className="App-title">simple CRUD with react, redux, mock-server</p>
-          </header>
+        <div className="app">
+          <header className="app-header"></header>
           <Container>
             <Row>
-              <Col xs="2">
+              <Col xs="12" sm="4" md="2">
                 <Nav vertical>
-                  <NavItem>
-                    <Link to="/" className="nav-link">About</Link>
-                  </NavItem>
                   <NavItem>
                     <Link to="/departments" className="nav-link">Departments</Link>
                   </NavItem>
                   <NavItem>
-                  <Link to="/employees" className="nav-link">Employees</Link>
+                    <Link to="/employees" className="nav-link">Employees</Link>
+                  </NavItem>
+                  <NavItem>
+                    <Link to="/" className="nav-link">About</Link>
                   </NavItem>
                 </Nav>
               </Col>
-              <Col xs="10">
+              <Col xs="12" sm="8" md="10">
                 <Route exact path="/" component={About}/>
                 <Route path="/departments" component={Departments}/>
                 <Route path="/employees" component={Employees}/>

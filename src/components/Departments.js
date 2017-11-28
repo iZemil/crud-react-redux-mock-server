@@ -6,7 +6,8 @@ import DepItem from './DepItem';
 
 class Departments extends Component {
   componentDidMount() {
-    const url = `http://localhost:3010/departments`
+    const url = `http://localhost:3010/departments`;
+
     fetch(url)
     .then(res => res.json())
     .then(data => {

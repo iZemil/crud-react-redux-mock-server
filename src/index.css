@@ -4,16 +4,16 @@ body {
   font-family: sans-serif;
 }
 
-.App-header {
+.table {
+  table-layout: fixed;
+}
+
+.app-header {
   padding: 20px;
   margin-bottom: 40px;
   text-align: center;
   background-color: #222;
   color: #fff;
-}
-
-.App-title {
-  font-size: 1.2em;
 }
 
 .service-cell {

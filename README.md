@@ -1,6 +1,7 @@
+# Simple CRUD with react, redux, mock-server
 
 ```
-json-server --watch ./src/db.json --port 3010
+yarn server
 ```
 ```
 yarn start
