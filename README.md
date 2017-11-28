@@ -1,6 +1,6 @@
 
 ```
-json-server --watch ./src/database/db.json --port 3010
+json-server --watch ./src/db.json --port 3010
 ```
 ```
 yarn start

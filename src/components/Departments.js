@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, Table } from 'reactstrap';
 import { connect } from 'react-redux';
-import { addDepartment, fetchDepartments, editDepartment, removeDepartment } from '../actions';
+import { addDepartment, fetchDepartments, updateDepartment, removeDepartment } from '../store/departments/actions';
+import DepItem from './DepItem';
 
 class Departments extends Component {
   componentDidMount() {
@@ -14,28 +15,19 @@ class Departments extends Component {
     .catch((error) => console.log(`Ошибка ${error}`) )
   }
 
-  editDepartment(e) {
-    let newText = 'Проверка 222';
-    console.log(newText);
-    let id = e.target.getAttribute('idx');
-
-    this.props.editDepartment(id, newText);
+  updateDepartment(id, newName) {
+    this.props.updateDepartment(id, newName);
   }
 
-  cancelEdit() {
-
-  }
-
-  removeDepartment(e) {
-    console.log(e.target.getAttribute('idx'));
-    let id = e.target.getAttribute('idx');
+  removeDepartment(id) {
     this.props.removeDepartment(id);
   }
 
   handleChange(e) {
     let text = e.target.value;
     let id = e.target.getAttribute('idx');
-    
+
+    console.log(text, id)
   }
 
   handleSubmit(e) {
@@ -74,17 +66,13 @@ class Departments extends Component {
             </tr>
           </thead>
           <tbody>
-            { departments.map(item => <tr key={item.id}>
-              <td>{item.id}</td>
-              <td><Input type="text" value={item.name}
-                idx={item.id}
-                onChange={(e) => this.handleChange(e) } /></td>
-              <td className="service-cell">
-                <div className="t-ico update-ico" onClick={ (e) => this.editDepartment(e) } idx={item.id} ></div>
-                <div className="t-ico cancel-ico" onClick={ (e) => this.cancelEdit(e) } idx={item.id} ></div>
-                <div className="t-ico remove-ico" onClick={ (e) => this.removeDepartment(e) } idx={item.id} ></div>
-              </td>
-            </tr>) }
+            {departments.map(item =>
+              <DepItem
+                key={item.id}
+                item={item}
+                updateClick={this.updateDepartment.bind(this)}
+                removeClick={this.removeDepartment.bind(this)} />
+            )}
           </tbody>
         </Table>
       </div>
@@ -106,8 +94,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchDepartments: (data) => {
       dispatch(fetchDepartments(data));
     },
-    editDepartment: (id, newName) => {
-      dispatch(editDepartment(id, newName));
+    updateDepartment: (id, newName) => {
+      dispatch(updateDepartment(id, newName));
     },
     removeDepartment: (id) => {
       dispatch(removeDepartment(id));

@@ -1,0 +1,30 @@
+{
+  "departments": [
+    {
+      "name": "IT",
+      "id": 2
+    },
+    {
+      "name": "База",
+      "id": 3
+    },
+    {
+      "name": "ФизКульт",
+      "id": 6
+    }
+  ],
+  "employees": [
+    {
+      "first_name": "Иван",
+      "last_name": "Петров",
+      "department_no": "1",
+      "id": 4
+    },
+    {
+      "first_name": "Petr",
+      "last_name": "Vasiliev",
+      "department_no": "2",
+      "id": 5
+    }
+  ]
+}

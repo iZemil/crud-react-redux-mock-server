@@ -1,9 +1,7 @@
-// DEPARTMENTS
-let nextId = 0;
+let nextId = 1;
 
 export const fetchDepartments = (data) => {
   nextId = data.reduce((maxId, item) => Math.max(item.id, maxId), -1) + 1;
-  console.log(data);
 
   return {
     type: "FETCH_DEPARTMENTS",
@@ -42,13 +40,6 @@ export const addDepartment = (name) => {
       throw error
     }
   }
-  
-  // fetch(request)
-  // .then(res => res.json())
-  // .then(data => {
-  //   putDep(data);
-  // })
-  // .catch((error) => console.log(`Ошибка ${error}`))
 
   return {
     type: "ADD_DEPARTMENT",
@@ -56,11 +47,13 @@ export const addDepartment = (name) => {
   }
 }
 
-export const editDepartment = (id, newName) => {
+export const updateDepartment = (id, newName) => {
   editDB(id, newName)
 
   function editDB(id, newName) {
-    let data = {name: newName};
+    let data = {
+      name: newName
+    };
 
     return fetch(`http://localhost:3010/departments/${id}`, {
       method: 'put',
@@ -95,7 +88,5 @@ export const removeDepartment = (id) => {
     id
   }
 };
-
-// EMPLOYEES
 
 
